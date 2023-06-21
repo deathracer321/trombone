@@ -1,0 +1,30 @@
+.features-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 5fr;
+  grid-template-rows: repeat(3, 160px);
+  background-color: #85c2f4;
+  padding: 10px;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+.grid-item-icon {
+  max-width: 100px;
+  object-fit: contain;
+  height: auto;
+}
+
+.grid-item {
+  /* border: 5px solid gray; */
+}
+
+@media only screen and (max-width: 768px) {
+  .features-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+  .grid-item {
+    padding: 20px;
+    /* border: 5px solid gray; */
+  }
+}
