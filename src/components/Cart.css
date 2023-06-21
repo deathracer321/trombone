@@ -1,3 +1,15 @@
+.cart-content {
+  min-height: 80vh;
+}
+.cart-fallback {
+  padding-top: 30px;
+  text-align: center;
+}
+.cart-total {
+  text-align: center;
+  color: #0db013;
+  padding-bottom: 20px;
+}
 .products-content {
   display: flex;
   flex-wrap: wrap;

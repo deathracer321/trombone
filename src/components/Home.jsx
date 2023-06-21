@@ -39,7 +39,7 @@ function Home() {
               <button
                 className="form-submit"
                 type="submit"
-                onClick={formSubmitHandler}
+                onSubmit={formSubmitHandler}
               >
                 Submit
               </button>
@@ -47,20 +47,14 @@ function Home() {
           </h3>
         </form>
       </span>
-      {/* <embed
-        src={OwnAudio}
-        loop="true"
-        autostart="true"
-        width="2"
-        height="0"
-      ></embed> */}
     </div>
   );
 }
 
 export default Home;
 
-// where to put the validation and how to handle validations when submitting the form
+// where to put the validation and how to handle validations when submitting the form - got it and use onsubmit instead of onclick
 // how to set the viewport of the content so that it will not scroll
 // shuld all the classnames must be unique in react? because it gets collapsed
-// audio embed is working for the first time only
+// audio embed is working for the first time only - something related to preventDefult
+//box-sizing: border-box

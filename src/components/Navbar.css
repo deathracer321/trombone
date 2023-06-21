@@ -59,4 +59,11 @@
   .navbar-li {
     float: none;
   }
+  .navbar-ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }

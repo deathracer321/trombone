@@ -28,7 +28,7 @@ function Cart() {
     var newArr = selectedId;
     var neededDeletionIndex = newArr.indexOf("2");
     newArr.splice(neededDeletionIndex, 1);
-    console.log(newArr);
+
     setSelectedID([...newArr]);
   };
 
@@ -37,21 +37,22 @@ function Cart() {
   return (
     <>
       <div className="cart-content">
-        {selectedId.length > 0 ? (
-          <>
-            <h1>Items In Your Cart : </h1>
-            <br></br>
-          </>
-        ) : (
-          <h2>
-            Please add Items to your cart! <br></br>
-          </h2>
-        )}
+        <div className="cart-fallback">
+          {selectedId.length > 0 ? (
+            <>
+              <h1>Items In Your Cart : </h1>
+              <br></br>
+            </>
+          ) : (
+            <h2>
+              Please add Items to your cart! <br></br>
+            </h2>
+          )}
+        </div>
         <div className="products-content">
           {selectedId?.map((itemInSelectedId, ind) => {
             return fetchedProductsInCart?.map((itemInFetchedProductsInCart) => {
               if (itemInFetchedProductsInCart.id == itemInSelectedId) {
-                console.log(itemInFetchedProductsInCart.id);
                 return (
                   <div className="flip-card" key={ind}>
                     <div className="flip-card-inner">
@@ -85,12 +86,12 @@ function Cart() {
             });
           })}
         </div>
-        <div>
+        <div className="cart-total">
           {selectedId.length > 0 ? (
             <>
               <h1>Proceed to Checkout : </h1>
               <br></br>
-              <h3>Total Sum : Rs.{sumCheckout}</h3>
+              <h2>Total Sum : Rs.{sumCheckout}</h2>
             </>
           ) : (
             <br></br>

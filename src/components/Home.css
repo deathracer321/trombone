@@ -53,4 +53,8 @@
     flex-direction: column;
     overflow: hidden;
   }
+  .home-image {
+    padding: 10px;
+    height: auto;
+  }
 }
