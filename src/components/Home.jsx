@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
+import OwnAudio from "../assets/music.mp3";
 
 function Home() {
   const formSubmitHandler = (e) => {
@@ -12,7 +13,7 @@ function Home() {
     <div className="home-content">
       <span className="home-left">
         <img
-          src="https://cdn.wallpapersafari.com/1/92/U1jwXx.jpg"
+          src="https://i.gifer.com/7cFt.gif"
           alt="homeimage"
           className="home-image"
         />
@@ -46,6 +47,13 @@ function Home() {
           </h3>
         </form>
       </span>
+      {/* <embed
+        src={OwnAudio}
+        loop="true"
+        autostart="true"
+        width="2"
+        height="0"
+      ></embed> */}
     </div>
   );
 }
@@ -55,3 +63,4 @@ export default Home;
 // where to put the validation and how to handle validations when submitting the form
 // how to set the viewport of the content so that it will not scroll
 // shuld all the classnames must be unique in react? because it gets collapsed
+// audio embed is working for the first time only
