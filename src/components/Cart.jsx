@@ -12,13 +12,43 @@ function Cart() {
     setFetchedProductsInCart(AvailableProducts);
   }, []);
 
+  const removeFromCartHandler = (event) => {};
+
   return (
     <div className="products-content">
-      {selectedId?.map((itemInSelectedId) => {
+      {selectedId?.map((itemInSelectedId, ind) => {
         return fetchedProductsInCart?.map((itemInFetchedProductsInCart) => {
           if (itemInFetchedProductsInCart.id == itemInSelectedId) {
             console.log(itemInFetchedProductsInCart.id);
-            return <h1>{itemInFetchedProductsInCart.name}</h1>;
+            return (
+              <div className="flip-card" key={ind}>
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <img
+                      src={itemInFetchedProductsInCart.image}
+                      alt={itemInFetchedProductsInCart.name}
+                      className="products-image"
+                    />
+                  </div>
+                  <div className="flip-card-back">
+                    <h1 className="products-name">
+                      {itemInFetchedProductsInCart.name}
+                    </h1>
+                    <b className="products-cost">
+                      {itemInFetchedProductsInCart.cost}
+                    </b>
+                    {/* <p className="products-desc">{eachItem.description}</p> */}
+                    <button
+                      className="products-btn"
+                      onClick={removeFromCartHandler}
+                      value={itemInSelectedId}
+                    >
+                      Remove From Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
           }
         });
       })}
