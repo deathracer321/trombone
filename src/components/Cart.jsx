@@ -5,12 +5,24 @@ import { UserContext } from "../App";
 
 function Cart() {
   const { selectedId, setSelectedID } = useContext(UserContext);
-
+  const [sumCheckout, setSumCheckout] = useState(0);
   const [fetchedProductsInCart, setFetchedProductsInCart] = useState();
 
   useEffect(() => {
     setFetchedProductsInCart(AvailableProducts);
   }, []);
+
+  useEffect(() => {
+    var total = 0;
+    selectedId?.map((itemInSelectedId, ind) => {
+      return fetchedProductsInCart?.map((itemInFetchedProductsInCart) => {
+        if (itemInFetchedProductsInCart.id == itemInSelectedId) {
+          total += itemInFetchedProductsInCart.cost;
+          setSumCheckout(total);
+        }
+      });
+    });
+  }, [selectedId, sumCheckout, fetchedProductsInCart]);
 
   const removeFromCartHandler = (event) => {
     var newArr = selectedId;
@@ -19,6 +31,8 @@ function Cart() {
     console.log(newArr);
     setSelectedID([...newArr]);
   };
+
+  const productsContentReturn = (event) => {};
 
   return (
     <>
@@ -76,7 +90,7 @@ function Cart() {
             <>
               <h1>Proceed to Checkout : </h1>
               <br></br>
-              <h3>Total Sum : {}</h3>
+              <h3>Total Sum : Rs.{sumCheckout}</h3>
             </>
           ) : (
             <br></br>
