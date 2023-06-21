@@ -4,7 +4,7 @@ import AvailableProducts from "../assets/products.json";
 import { UserContext } from "../App";
 
 function Cart() {
-  const { selectedId, setSelectedId } = useContext(UserContext);
+  const { selectedId, setSelectedID } = useContext(UserContext);
 
   const [fetchedProductsInCart, setFetchedProductsInCart] = useState();
 
@@ -12,10 +12,17 @@ function Cart() {
     setFetchedProductsInCart(AvailableProducts);
   }, []);
 
-  const removeFromCartHandler = (event) => {};
+  const removeFromCartHandler = (event) => {
+    // console.log(event.target.value);
+    var newArr = selectedId;
+    var neededDeletionIndex = newArr.indexOf("2");
+    newArr.splice(neededDeletionIndex, 1);
+    console.log(newArr);
+    setSelectedID([...newArr]);
+  };
 
   return (
-    <div className="products-content">
+    <div className="cart-content">
       {selectedId?.map((itemInSelectedId, ind) => {
         return fetchedProductsInCart?.map((itemInFetchedProductsInCart) => {
           if (itemInFetchedProductsInCart.id == itemInSelectedId) {
